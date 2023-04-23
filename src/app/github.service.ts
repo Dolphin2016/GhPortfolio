@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {User} from './user';
 import {environment} from '../environments/environment';
 import {Repository} from './repository';
+import {Organization} from './organization';
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +22,9 @@ export class GithubService {
   }
   getRepos(): Observable<Repository[]> {
     return this.http.get<Repository[]>(this.userUrl + '/repos');
+  }
+
+  getOrganization(): Observable<Organization[]> {
+    return this.http.get<Organization[]>(this.userUrl + '/orgs');
   }
 }
